@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name" translatable="false">Brownie</string>
+    <string name="media_title">Brownie: Brown noise</string>
+
+    <string name="status_pause_short">Pause</string>
+    <string name="status_playing">Playing</string>
+    <string name="status_paused">Paused</string>
+    <string name="action_play">Play</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_stop">Stop</string>
+    <string name="notification_channel_name">Playback</string>
+
+    <string name="label_dispersion">Dispersion</string>
+    <string name="label_smoothness">Smoothness</string>
+    <string name="label_stereo_width">Stereo width</string>
+    <string name="label_cutoff">Low-pass cutoff</string>
+    <string name="label_resonance">Low-pass resonance</string>
+    <string name="label_volume">Volume</string>
+    <string name="label_two_channels">2 channels</string>
+    <string name="label_auto_normalize">Auto-normalize</string>
+    <string name="label_deep_bass">Deep bass (FIR/IIR)</string>
+    <string name="label_stereo_drift">Stereo drift</string>
+
+    <string name="value_percent">%1$d%%</string>
+    <string name="value_hz">%1$d Hz</string>
+
+    <string name="info_button">About this setting</string>
+    <string name="info_dispersion">How big each random step of the noise is. Higher values make the sound rougher, closer to white noise, lower values make it calmer and deeper.</string>
+    <string name="info_smoothness">How strongly the noise is initially smoothed while being generated. Higher values make it softer, darker and deeper; lower values keep more detail and brightness.</string>
+    <string name="info_stereo_width">How different the left and right channels are. 0% means mono, 100% makes the sound wide and enveloping.</string>
+    <string name="info_cutoff">Additional filtering where frequencies above this value are cut off. Lower values make the sound even more deep and muffled</string>
+    <string name="info_resonance">Shape of the cutoff. Low values give a crisp cutoff right at the chosen frequency; high values stretch it out so it starts much lower, making the sound softer and more muffled. 0% turns the filter off.</string>
+    <string name="info_volume">Output level, not available while Auto-normalize is on (constant -8 dB).</string>
+</resources>

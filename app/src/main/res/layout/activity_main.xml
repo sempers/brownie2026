@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E130A"
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:importantForAccessibility="no"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageOverlay"
+        android:importantForAccessibility="no"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:alpha="0"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+    <ImageButton
+        android:id="@+id/buttonPlayPause"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="80dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/play_circle"
+        android:contentDescription="@string/action_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/avgContainer"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonPlayPause">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_black" />
+        <TextView
+            android:id="@+id/textDbValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center"
+            android:text="@string/status_pause_short"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </FrameLayout>
+    <ScrollView
+        android:id="@+id/settingsScroll"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageBackground"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+        <LinearLayout
+            android:id="@+id/settingsPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="0dp">
+            <!-- ======== DISPERSION ========= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="0dp"
+                android:paddingRight="14dp">
+                <TextView
+                    android:id="@+id/textDispersionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_dispersion"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoDispersion"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textDispersionLabel"
+                    app:layout_constraintTop_toTopOf="@id/textDispersionLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textDispersionLabel" />
+                <TextView
+                    android:id="@+id/textDispersionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="30%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textDispersionLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textDispersionLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- ======== SMOOTHNESS ========= -->
+            <SeekBar
+                android:id="@+id/seekDispersion"
+                android:contentDescription="@string/label_dispersion"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="100"
+                android:min="0"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="2dp"
+                android:paddingRight="16dp">
+                <TextView
+                    android:id="@+id/textSmoothnessLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_smoothness"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoSmoothness"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textSmoothnessLabel"
+                    app:layout_constraintTop_toTopOf="@id/textSmoothnessLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textSmoothnessLabel" />
+                <TextView
+                    android:id="@+id/textSmoothnessValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="10%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textSmoothnessLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textSmoothnessLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <SeekBar
+                android:id="@+id/seekSmoothness"
+                android:contentDescription="@string/label_smoothness"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="100"
+                android:min="0"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <!-- ======== STEREO WIDTH ========= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="16dp">
+                <TextView
+                    android:id="@+id/textStereoWidthLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_stereo_width"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoStereoWidth"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textStereoWidthLabel"
+                    app:layout_constraintTop_toTopOf="@id/textStereoWidthLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textStereoWidthLabel" />
+                <TextView
+                    android:id="@+id/textStereoWidthValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="90%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textStereoWidthLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textStereoWidthLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <SeekBar
+                android:id="@+id/seekStereoWidth"
+                android:contentDescription="@string/label_stereo_width"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="100"
+                android:min="0"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <!-- ======== LOW-PASS FILTER CUTOFF FREQUENCY ========= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="16dp">
+                <TextView
+                    android:id="@+id/textCutoffLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_cutoff"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoCutoff"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textCutoffLabel"
+                    app:layout_constraintTop_toTopOf="@id/textCutoffLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textCutoffLabel" />
+                <TextView
+                    android:id="@+id/textCutoffValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="600 Hz"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textCutoffLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textCutoffLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <SeekBar
+                android:id="@+id/seekCutoff"
+                android:contentDescription="@string/label_cutoff"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="1000"
+                android:min="20"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <!-- ======== LOWPASS FILTER RESONANCE ========= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="16dp">
+                <TextView
+                    android:id="@+id/textLPFCoefLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_resonance"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoResonance"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textLPFCoefLabel"
+                    app:layout_constraintTop_toTopOf="@id/textLPFCoefLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textLPFCoefLabel" />
+                <TextView
+                    android:id="@+id/textLPFCoefValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textLPFCoefLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textLPFCoefLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <SeekBar
+                android:id="@+id/seekLPFCoef"
+                android:contentDescription="@string/label_resonance"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="100"
+                android:min="0"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <!-- ======== VOLUME ========= -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="16dp">
+                <TextView
+                    android:id="@+id/textVolumeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_volume"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/infoVolume"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="2dp"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_info"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/info_button"
+                    app:layout_constraintStart_toEndOf="@id/textVolumeLabel"
+                    app:layout_constraintTop_toTopOf="@id/textVolumeLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/textVolumeLabel" />
+                <TextView
+                    android:id="@+id/textVolumeValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100%"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/textVolumeLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textVolumeLabel" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <SeekBar
+                android:id="@+id/seekVolume"
+                android:contentDescription="@string/label_volume"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:max="200"
+                android:min="0"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:thumb="@drawable/custom_thumb"
+                android:thumbTint="@null" />
+            <!-- ========= Advanced Settings ======== -->
+            <LinearLayout
+                android:id="@+id/advancedSettingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:layout_marginTop="16dp"
+                android:paddingRight="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="6dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp">
+                    <CheckBox
+                        android:id="@+id/checkboxIsTwoChannels"
+                        android:contentDescription="@string/label_two_channels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/checkbox_checked_color" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_two_channels"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                    <CheckBox
+                        android:id="@+id/checkboxAutoNormalize"
+                        android:contentDescription="@string/label_auto_normalize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/checkbox_checked_color" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_auto_normalize"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="6dp"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp">
+                    <CheckBox
+                        android:id="@+id/checkboxDeepBass"
+                        android:contentDescription="@string/label_deep_bass"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/checkbox_checked_color" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_deep_bass"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                    <CheckBox
+                        android:id="@+id/checkboxStereoDrift"
+                        android:contentDescription="@string/label_stereo_drift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/checkbox_checked_color" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/label_stereo_drift"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

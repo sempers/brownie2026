@@ -1,0 +1,31 @@
+<resources>
+    <string name="media_title">Brownie: Коричневый шум</string>
+
+    <string name="status_pause_short">Пауза</string>
+    <string name="status_playing">Играет</string>
+    <string name="status_paused">На паузе</string>
+    <string name="action_play">Играть</string>
+    <string name="action_pause">Пауза</string>
+    <string name="action_stop">Стоп</string>
+    <string name="notification_channel_name">Воспроизведение</string>
+
+    <string name="label_dispersion">Дисперсия</string>
+    <string name="label_smoothness">Сглаживание</string>
+    <string name="label_stereo_width">Ширина стерео</string>
+    <string name="label_cutoff">Частота среза ФНЧ</string>
+    <string name="label_resonance">Резонанс ФНЧ</string>
+    <string name="label_volume">Громкость</string>
+    <string name="label_two_channels">2 канала</string>
+    <string name="label_auto_normalize">Автонормализация</string>
+    <string name="label_deep_bass">Глубокий бас (FIR/IIR)</string>
+    <string name="label_stereo_drift">Стерео-дрейф</string>
+
+    <string name="value_hz">%1$d Гц</string>
+    <string name="info_button">Об этой настройке</string>
+    <string name="info_dispersion">Насколько велик каждый случайный шаг шума. Чем больше значение, тем звук грубее и энергичнее, ближе к белому шуму; чем меньше — тем спокойнее и глубже.</string>
+    <string name="info_smoothness">Насколько сильно первоначально сглаживается шум при генерации. Большие значения делают звук мягче, темнее и глубже, маленькие сохраняют больше деталей и яркости.</string>
+    <string name="info_stereo_width">Насколько различаются левый и правый каналы. 0% — моно-звук, 100% — широкая стереопанорама. Работает в режиме "2 канала"</string>
+    <string name="info_cutoff">Частоты выше этого значения срезаются фильтром низких частот. Чем ниже, тем глуше звук — как шум за стеной.</string>
+    <string name="info_resonance">Форма среза фильтра низких частот. Малые значения — чёткий срез точно на выбранной частоте, высокая добротность; большие — срез растягивается и начинается заметно ниже, звук становится мягче и глуше, низкая добротность. 0% отключает фильтр.</string>
+    <string name="info_volume">Усиление звука, режим автонормализации выставляет постоянное -8 дБ.</string>
+</resources>
